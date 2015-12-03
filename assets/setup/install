@@ -14,7 +14,10 @@ SETUP_DIR="/app/setup"
 GEM_CACHE_DIR="${SETUP_DIR}/cache"
 
 # rebuild yum cache
-yum update
+yum install -y wget
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
+wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+yum -y update
 
 # install build dependencies for gem installation
 yum install -y gcc gcc-c++ make patch pkgconfig cmake \

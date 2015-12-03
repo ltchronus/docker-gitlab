@@ -48,7 +48,7 @@ Start the gitlab container
 docker run --name=gitlab -d \
 --link redis:redis \
 --link postgresql:postgresql \
---publish 8090:80
+--publish 8090:80 \
 $USER/gitlab
 ```
 

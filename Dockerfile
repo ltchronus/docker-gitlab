@@ -8,6 +8,7 @@ RUN yum install -y supervisor logrotate nginx openssh-server \
     mariadb-devel libpqxx zlib libyaml gdbm readline redis \
     ncurses libffi libxml2 libxslt libcurl libicu rubygem-bundler \
     which sudo passwd tar initscripts cronie; yum clean all
+RUN gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
 RUN sed -i 's/Defaults    requiretty/#Defaults    requiretty/g' /etc/sudoers
 ADD assets/setup/ /app/setup/
 RUN chmod 755 /app/setup/install

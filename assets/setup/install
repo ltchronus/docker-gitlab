@@ -88,6 +88,8 @@ rm -rf public/uploads
 sudo -u git -H ln -s ${GITLAB_DATA_DIR}/uploads public/uploads
 
 # install gems required by gitlab, use local cache if available
+# and change bundle source to taobao in china
+sed -i 's/rubygems.org/ruby.taobao.org/' Gemfile 
 if [ -d "${GEM_CACHE_DIR}" ]; then
   mv ${GEM_CACHE_DIR} vendor/
   chown -R git:git vendor/cache
